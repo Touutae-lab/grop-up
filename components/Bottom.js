@@ -89,8 +89,7 @@ export function Appbar() {
 
 const styles = StyleSheet.create({
     bottoms:{
-        flex: 0
-
+        flex: 0,
     }
 });
 
