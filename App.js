@@ -1,18 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { CreateEvent } from './components/CreateEvent.js';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native';
 
-export default function App() {
+import { appColors } from './ColorTemplate.js';
+
+import { CreateEvent } from './components/CreateEvent.js'; // for testing purpose
+import { Header } from './components/Header.js';
+import { Bottom } from './components/Bottom.js';
+
+export default function App(props) {
   return (
-    <CreateEvent />
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={appColors.primaryAppColor}
+        barStyle='light-content'
+        showHideTransition='fade'
+        hidden={false} />
+      <CreateEvent />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
 });
