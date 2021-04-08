@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { CreateEvent } from './CreateEvent.js';
+import { CreateEvent } from './components/CreateEvent.js';
 
 export default function App() {
   return (
