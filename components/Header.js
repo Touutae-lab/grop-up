@@ -5,8 +5,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 const Header = props => {
   return (
     <View style={styles.header}>
-         <Text style = {styles.headerTitle}>{props.title}</Text>
-         <Image
+       <Text style = {styles.headerTitle}>{props.title}</Text>
+       <Image
          style = {styles.tinylogo}
          source = {require('../assets/logo.png')} />
     </View>
