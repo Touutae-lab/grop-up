@@ -13,6 +13,7 @@ import {
 import { appColors } from './ColorTemplate.js';
 
 import { CreateEvent } from './components/CreateEvent.js'; // for testing purpose
+import Appbar from './components/Bottom'
 
 //import { Header } from './components/Header.js';
 //import { Bottom } from './components/Bottom.js';

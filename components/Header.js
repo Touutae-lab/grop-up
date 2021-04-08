@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
   header:{
       width: '100%',
       height: 90,
-      paddingTop: 36,
+      paddingTop: 20,
+      paddingBottom: 8,
       backgroundColor: '#ffffff',
       alignItems: 'flex-start'
   },
@@ -26,8 +27,8 @@ const styles = StyleSheet.create({
       fontSize: 18,
   },
   tinylogo:{
-    width: 100,
-    height: 58,
+    width: '20%',
+    height: '80%',
   }
 }
 );
