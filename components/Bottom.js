@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
+import { CreateEvent } from './CreateEvent.js';
+import { appColors } from './../ColorTemplate.js';
+
 function Feed() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -30,12 +33,12 @@ function Feed() {
   }
   
 
-function Appbar() {
+export function Appbar() {
     return (
       <Tab.Navigator
         initialRouteName="Feed"
         tabBarOptions={{
-          activeTintColor: '#5ac8fa',
+          activeTintColor: appColors.primaryAppColor,
         }}
       >
         <Tab.Screen
@@ -45,6 +48,16 @@ function Appbar() {
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="CreateEvent"
+            component={CreateEvent}
+          options={{
+            tabBarLabel: 'Create Event',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="calendar" color={color} size={size} />
             ),
           }}
         />

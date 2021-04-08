@@ -24,11 +24,11 @@ export default function App(props) {
       <StatusBar
         animated={true}
         backgroundColor={appColors.primaryAppColor}
-        barStyle='light-content'
+        barStyle='dark-content'
         showHideTransition='fade'
         hidden={false} />
         <Header />
-      <CreateEvent />
+      <Appbar />
     </SafeAreaView>
   );
 }
