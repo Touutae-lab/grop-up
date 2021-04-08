@@ -19,13 +19,11 @@ const styles = StyleSheet.create({
       height: 90,
       paddingTop: 36,
       backgroundColor: '#ffffff',
-      alignItems: 'left'
+      alignItems: 'flex-start'
   },
   headerTitle:{
       color: '#5ac8fa',
       fontSize: 18,
-      fontStyle: 'bold',
-      alignContent: 'flex-start',
   },
   tinylogo:{
     width: 100,
