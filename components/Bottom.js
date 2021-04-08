@@ -45,9 +45,9 @@ export function Appbar() {
           name="Feed"
           component={Feed}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
+              <MaterialCommunityIcons name="home" color={color} size={size+5} />
             ),
           }}
         />
@@ -55,9 +55,9 @@ export function Appbar() {
           name="CreateEvent"
             component={CreateEvent}
           options={{
-            tabBarLabel: 'Create Event',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="calendar" color={color} size={size} />
+              <MaterialCommunityIcons name="calendar" color={color} size={size+5} />
             ),
           }}
         />
@@ -65,9 +65,9 @@ export function Appbar() {
           name="Notifications"
             component={Notifications}
           options={{
-            tabBarLabel: 'Updates',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="bell" color={color} size={size} />
+              <MaterialCommunityIcons name="bell" color={color} size={size+5} />
             ),
           }}
         />
@@ -75,9 +75,9 @@ export function Appbar() {
           name="Profile"
           component={Profile}
           options={{
-            tabBarLabel: 'Profile',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="account" color={color} size={size} />
+              <MaterialCommunityIcons name="account" color={color} size={size+5} />
             ),
           }}
         />
