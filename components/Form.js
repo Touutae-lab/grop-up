@@ -52,6 +52,18 @@ export class Label extends Component {
   }
 };
 
+//export class FullWidthButton extends Component {
+//  constructor(props) {
+//    super(props);
+//  }
+//
+//  render() {
+//    return (
+//      
+//    );
+//  }
+//}
+
 
 const styles = StyleSheet.create({
   inputBox: {
