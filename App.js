@@ -32,11 +32,16 @@ const App = props => {
         showHideTransition='fade'
         hidden={false} />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             name="Home"
             component={Appbar}
             options={{ title: 'Group Up' }}
+          />
+          <Stack.Screen
+            name="CreateEvent"
+            component={CreateEvent}
+            options={{ title: 'Create an event' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
