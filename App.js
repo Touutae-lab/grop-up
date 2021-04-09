@@ -13,12 +13,12 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { appColors } from './ColorTemplate.js';
-import { CreateEvent } from './scene/CreateEvent.js'; // for testing purpose
-import Appbar from './scene/Home'
+import { appColors } from './ColorTemplate';
+import { CreateEvent } from './scene/CreateEvent'; // for testing purpose
+import { Appbar } from './scene/Home'
 
-//import { Header } from './components/Header.js';
-//import { Bottom } from './components/Bottom.js';
+//import { Header } from './components/Header';
+//import { Bottom } from './components/Bottom';
 
 const Stack = createStackNavigator();
 
@@ -31,8 +31,15 @@ const App = props => {
         barStyle='dark-content'
         showHideTransition='fade'
         hidden={false} />
-        <Header />
-      <Appbar />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Appbar}
+            options={{ title: 'Group Up' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };

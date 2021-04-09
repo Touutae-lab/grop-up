@@ -33,7 +33,7 @@ function Feed() {
   }
   
 
-export function Appbar() {
+export const Appbar = ({ navigation }) => {
     return (
       <Tab.Navigator
         initialRouteName="Feed"
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function App() {
-    return (
-        <NavigationContainer>
-            <Appbar/>
-        </NavigationContainer>
-    );
-}
+//export default function App() {
+//    return (
+//        <NavigationContainer>
+//            <Appbar/>
+//        </NavigationContainer>
+//    );
+//}
