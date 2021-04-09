@@ -59,7 +59,7 @@ export class Label extends Component {
 //
 //  render() {
 //    return (
-//      
+//      <Button
 //    );
 //  }
 //}
