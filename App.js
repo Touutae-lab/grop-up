@@ -30,18 +30,29 @@ const App = props => {
         backgroundColor={appColors.primaryAppColor}
         barStyle='dark-content'
         showHideTransition='fade'
+        translucent={true}
         hidden={false} />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator
+          initialRouteName="Home"
+        >
           <Stack.Screen
             name="Home"
             component={Appbar}
-            options={{ title: 'Group Up' }}
+            options={{
+              title: 'Group Up',
+              headerTintColor: appColors.white,
+              headerStyle: {
+                backgroundColor: appColors.primaryAppColor,
+              },
+            }}
           />
           <Stack.Screen
             name="CreateEvent"
             component={CreateEvent}
-            options={{ title: 'Create an event' }}
+            options={{
+              title: 'Create an event',
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -52,6 +63,7 @@ const App = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: appColors.primaryAppColor,
   },
 });
 
