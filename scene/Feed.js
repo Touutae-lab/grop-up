@@ -8,6 +8,7 @@ import {
   View,
   Image,
   ImageBackground,
+  StatusBar,
   Dimensions,
 } from 'react-native';
 
@@ -22,6 +23,8 @@ export const Feed = props => {
     props.navigation.navigate('CreateEvent');
   };
 
+  //props.headerStyleSetter('light-content');
+
   return (
     <ScrollView style={styles.container}>
       <ImageBackground
@@ -29,6 +32,7 @@ export const Feed = props => {
         source={require('./../assets/sample.jpg')}>
         <View style={styles.imgEventInner}>
           <Text style={{color: appColors.white}}>สวัสดี, ศักย์ศิลกาล !</Text>
+          {/*<Text>{StatusBar.currentHeight}</Text>*/}
           {/*
           <Image
             source={}
@@ -84,17 +88,18 @@ const styles = StyleSheet.create({
   imgEvent: {
     flex: 4,
     width: '100%',
-    height: windowSize.height * 0.20,
+    height: windowSize.height * 0.275,
     resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
   },
   imgEventInner: {
+    paddingTop: StatusBar.currentHeight,
     width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.32)',
+    backgroundColor: 'rgba(0, 0, 0, 0.40)',
   },
 });

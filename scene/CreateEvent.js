@@ -29,6 +29,8 @@ export const CreateEvent = props => {
   const [evenLocation, onChangeEventLocation] = React.useState('');
   const [eventTag, onChangeEventTag] = React.useState('');
 
+  //props.headerStyleSetter('light-content');
+
   //const defaultImgEvent = require('./../assets/sample.jpg');
   return (
     <ScrollView style={styles.container}>

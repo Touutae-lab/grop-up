@@ -34,7 +34,8 @@ import { appColors } from './../ColorTemplate.js';
   }
   
 
-export const Appbar = ({ navigation }) => {
+export const Appbar = props => {
+  
     return (
       <Tab.Navigator
         initialRouteName="Feed"
@@ -44,14 +45,15 @@ export const Appbar = ({ navigation }) => {
       >
         <Tab.Screen
           name="Feed"
-          component={Feed}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size+5} />
             ),
           }}
-        />
+        >
+          {props => <Feed {...props} systemUIprops={props.systemUIprops} />}
+        </Tab.Screen>
         <Tab.Screen
           name="Notifications"
             component={Notifications}

@@ -23,12 +23,14 @@ import { Appbar } from './scene/Home'
 const Stack = createStackNavigator();
 
 const App = props => {
+  const [headerStyle, setHeaderStyle] = React.useState('light-content');
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor={appColors.primaryAppColor}
-        barStyle='dark-content'
+        backgroundColor='transparent'
+        barStyle={headerStyle}
         showHideTransition='fade'
         translucent={true}
         hidden={false} />
@@ -38,25 +40,29 @@ const App = props => {
         >
           <Stack.Screen
             name="Home"
-            component={Appbar}
+            //component={Appbar}
             options={{
-              title: 'Group Up',
+              title: '',
               headerTintColor: appColors.white,
+              headerTransparent: true,
               headerStyle: {
                 backgroundColor: appColors.primaryAppColor,
               },
             }}
-          />
+          >
+            {props => <Appbar {...props} />}
+          </Stack.Screen>
           <Stack.Screen
             name="CreateEvent"
-            component={CreateEvent}
             options={{
               title: 'Create an event',
             }}
-          />
+          >
+            {props => <CreateEvent {...props} />}
+          </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    </View>
   );
 };
 
