@@ -59,7 +59,7 @@ const App = props => {
             options={{
               title: '',
               headerTintColor: appColors.white,
-              headerTransparent: {currentHeaderBgHidden},
+              headerTransparent: currentHeaderBgHidden,
               headerStyle: {
                 backgroundColor: appColors.primaryAppColor,
               },

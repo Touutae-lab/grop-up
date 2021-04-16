@@ -27,20 +27,21 @@ export const Feed = props => {
 
   return (
     <ScrollView style={styles.container}
-    >
-      {/*onScroll={event => {
+      onScroll={event => {
         const scrolling = event.nativeEvent.contentOffset.y;
         
         if (scrolling >= windowSize.height * 0.18) {
           props.rootState.set.headerStyle('dark-content');
-          props.rootState.set.headerBgColor(appColors.primaryColor);
+          props.rootState.set.headerBgColor(appColors.primaryAppColor);
           props.rootState.set.headerBgHidden(false);
         } else {
           props.rootState.set.headerStyle('light-content');
           props.rootState.set.headerBgColor('transparent');
           props.rootState.set.headerBgHidden(true);
         }
-      }}*/}
+      }}
+      scrollEventThrottle={64}
+    >
       <ImageBackground
         style={styles.imgEvent}
         source={require('./../assets/sample.jpg')}>
