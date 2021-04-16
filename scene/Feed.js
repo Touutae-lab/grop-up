@@ -26,29 +26,42 @@ export const Feed = props => {
   //props.headerStyleSetter('light-content');
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container}
+    >
+      {/*onScroll={event => {
+        const scrolling = event.nativeEvent.contentOffset.y;
+        
+        if (scrolling >= windowSize.height * 0.18) {
+          props.rootState.set.headerStyle('dark-content');
+          props.rootState.set.headerBgColor(appColors.primaryColor);
+          props.rootState.set.headerBgHidden(false);
+        } else {
+          props.rootState.set.headerStyle('light-content');
+          props.rootState.set.headerBgColor('transparent');
+          props.rootState.set.headerBgHidden(true);
+        }
+      }}*/}
       <ImageBackground
         style={styles.imgEvent}
         source={require('./../assets/sample.jpg')}>
         <View style={styles.imgEventInner}>
           <Text style={{color: appColors.white}}>สวัสดี, ศักย์ศิลกาล !</Text>
-          {/*<Text>{StatusBar.currentHeight}</Text>*/}
-          {/*
-          <Image
-            source={}
+          <Image style={styles.profileImg}
+            source={require('./../assets/profile-sample.png')}
           />
-          */}
+          <Text style={{color: appColors.white,}}>คุณเข้าร่วมกิจกรรมกับเราไปแล้วทั้งหมด n ครั้ง</Text>
         </View>
       </ImageBackground>
     <Button
       title="Create an event"
       onPress={goToCreateEvent}
     />
+    {[1, 2, 3, 4, 5, 6, 7, 8,9,10,11,12,13,14,15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50].map(el => (<Text key={el}>test!</Text>))}
     </ScrollView>
   );
 };
 
-export default class FeedEvents extends Component {
+export class FeedEvents extends Component {
   constructor() {
     super();
     this.state = {
@@ -88,7 +101,7 @@ const styles = StyleSheet.create({
   imgEvent: {
     flex: 4,
     width: '100%',
-    height: windowSize.height * 0.275,
+    height: windowSize.height * 0.30,
     resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
@@ -101,5 +114,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.40)',
+  },
+  profileImg: {
+    width: 100,
+    height: 100,
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 50,
   },
 });

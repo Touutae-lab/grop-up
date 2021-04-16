@@ -52,7 +52,7 @@ export const Appbar = props => {
             ),
           }}
         >
-          {props => <Feed {...props} systemUIprops={props.systemUIprops} />}
+          {prop => <Feed {...prop} rootState={props.rootState} />}
         </Tab.Screen>
         <Tab.Screen
           name="Notifications"

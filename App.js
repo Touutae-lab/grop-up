@@ -23,14 +23,29 @@ import { Appbar } from './scene/Home'
 const Stack = createStackNavigator();
 
 const App = props => {
-  const [headerStyle, setHeaderStyle] = React.useState('light-content');
+  const [currentHeaderStyle, setHeaderStyle] = React.useState('light-content');
+  const [currentHeaderBgHidden, setHeaderBgHidden] = React.useState(true);
+  const [currentHeaderBgColor, setHeaderBgColor] = React.useState('transparent');
+
+  const rootState = {
+    val: {
+      headerStyle: currentHeaderStyle,
+      headerBgHidden: currentHeaderBgHidden,
+      headerBgColor: currentHeaderBgColor,
+    },
+    set: {
+      headerStyle: setHeaderStyle,
+      headerBgHidden: setHeaderBgHidden,
+      headerBgColor: setHeaderBgColor,
+    },
+  };
 
   return (
     <View style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor='transparent'
-        barStyle={headerStyle}
+        backgroundColor={currentHeaderBgColor}
+        barStyle={currentHeaderStyle}
         showHideTransition='fade'
         translucent={true}
         hidden={false} />
@@ -44,13 +59,13 @@ const App = props => {
             options={{
               title: '',
               headerTintColor: appColors.white,
-              headerTransparent: true,
+              headerTransparent: {currentHeaderBgHidden},
               headerStyle: {
                 backgroundColor: appColors.primaryAppColor,
               },
             }}
           >
-            {props => <Appbar {...props} />}
+            {prop => <Appbar {...prop} rootState={rootState} />}
           </Stack.Screen>
           <Stack.Screen
             name="CreateEvent"
@@ -58,7 +73,7 @@ const App = props => {
               title: 'Create an event',
             }}
           >
-            {props => <CreateEvent {...props} />}
+            {prop => <CreateEvent {...prop}  rootState={rootState} />}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
