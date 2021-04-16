@@ -13,10 +13,24 @@ import {
 } from 'react-native';
 
 import { appColors } from './../ColorTemplate.js';
-import { Apprender } from './EventRender.js';
+import RenderAPI from './EventRender.js';
 
 const screenSize = Dimensions.get('screen');
 const windowSize = Dimensions.get('window');
+
+const GetApi = async () => {
+  try {
+    let response = await fetch(
+      "http://localhost:5000/event"
+    );
+    let json = await response.json();
+    return json.movies;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
 
 export const Feed = props => {
   const goToCreateEvent = () => {
@@ -57,42 +71,13 @@ export const Feed = props => {
       title="Create an event"
       onPress={goToCreateEvent}
     />
-    {[1, 2, 3, 4, 5, 6, 7, 8,9,10,11,12,13,14,15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50].map(el => (<Text key={el}>test!</Text>))}
+    <RenderAPI props={GetApi()}/>
+
+    {/* {[1, 2, 3, 4, 5, 6, 7, 8,9,10,11,12,13,14,15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50].map(el => (<Text key={el}>test!</Text>))} */}
     </ScrollView>
   );
-};
-
-export class FeedEvents extends Component {
-  constructor() {
-    super();
-    this.state = {
-        event: []
-    }
-  }
-  componentDidMount() {
-    fetch('http://localhost:5000/event').then(response => response.json()).then(data => this.state({event: data}));
-  }
-
-  render() {
-    const {event} = this.state;
-
-    return (
-      event.map((data, i) => {
-        return (
-          <Apprender
-            event={event[i].event}
-            img={event[i].img}
-            provider = {event[i].provider}
-            time={event[i].time}
-            detail = {event[i].detail}
-            place = {event[i].place}
-            tag = {event[i].tag}
-          />
-        );
-      })
-    );
-  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
