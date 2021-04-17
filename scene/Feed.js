@@ -77,6 +77,7 @@ export const Feed = props => {
       <RenderAPI />
     </ScrollView>
     <Button
+      style= {styles.Button}
       title="Create an event"
       onPress={goToCreateEvent}
     />
@@ -114,8 +115,11 @@ const styles = StyleSheet.create({
   profileImg: {
     width: 100,
     height: 100,
-    marginTop: 10,
+    marginTop: windowSize.height * 0.25,
     marginBottom: 10,
     borderRadius: 50,
   },
+  Button: {
+    flex: 1,
+  }
 });

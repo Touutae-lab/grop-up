@@ -26,7 +26,7 @@ export default Apprender;
 const styles = StyleSheet.create({
     screen: {
         alignContent: 'center',
-        width: windowSize.width * 0.8,
+        width: windowSize.width * 0.9,
         height: windowSize.height * 0.45,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2},
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 10,
         paddingTop: 20,
-        paddingHorizontal: 10,
+        paddingLeft: 20,
     },
 });
