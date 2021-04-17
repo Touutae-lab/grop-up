@@ -10,9 +10,20 @@ import {
   Dimensions,
   useEffect,
 } from 'react-native';
+import { set } from 'react-native-reanimated';
 
 import Apprender from './EventRender.js';
 
+
+async function fetchsomeThing() {
+  const response = await fetch('http://192.168.137.1:5000/event', { // This you need to change to your PC IP and change your API ip to host on you IP address
+    metode: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin'
+  });
+  return await response.json();
+}
 export default class Feedevents extends Component {
     constructor(props) {
       super(props);
@@ -20,11 +31,9 @@ export default class Feedevents extends Component {
           event: [],
       };
     }
-    componentDidMount(){
-      fetch('http://localhost:5000/event')
-      .then(response => response.json())
-      .then(json => this.setState({event: json}));
-
+    
+    async componentDidMount(){
+      fetchsomeThing().then(data => this.setState({event: data}));
       //console.log(this.state);
     };
     render() {
@@ -33,7 +42,6 @@ export default class Feedevents extends Component {
       return (
         <>
           {event.map((e, i) => {
-            console.log(e, i);
           return (
             <Apprender
               key={i}
