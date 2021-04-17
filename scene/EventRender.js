@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     screen: {
         alignContent: 'center',
         width: windowSize.width * 0.8,
-        height: windowSize.height * 0.5,
+        height: windowSize.height * 0.45,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2},
         shadowRadius: 6,
@@ -47,5 +47,7 @@ const styles = StyleSheet.create({
     seperate: {
         alignItems: 'center',
         paddingVertical: 10,
+        paddingTop: 20,
+        paddingHorizontal: 10,
     },
 });

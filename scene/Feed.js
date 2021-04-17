@@ -10,6 +10,7 @@ import {
   ImageBackground,
   StatusBar,
   Dimensions,
+  SafeAreaView,
 } from 'react-native';
 
 import { appColors } from './../ColorTemplate.js';
@@ -40,7 +41,24 @@ export const Feed = props => {
   //props.headerStyleSetter('light-content');
 
   return (
-    <ScrollView style={styles.container}
+    <View style={styles.container}>
+      <View style={styles.container}>
+      <ImageBackground
+          style={styles.imgEvent}
+          source={require('./../assets/sample.jpg')}> 
+          <View style={styles.imgEventInner}>
+            <Text style={{color: appColors.white}}>สวัสดี, ศักย์ศิลกาล !</Text>
+            <Image style={styles.profileImg}
+            source={require('./../assets/profile-sample.png')}
+            />
+            <Text style={{color: appColors.white,}}>คุณเข้าร่วมกิจกรรมกับเราไปแล้วทั้งหมด n ครั้ง</Text>
+          </View>
+        </ImageBackground>
+      </View>
+
+    <ScrollView 
+    horizontal= {true}
+    style = {styles.scroll}
       onScroll={event => {
         const scrolling = event.nativeEvent.contentOffset.y;
         
@@ -56,37 +74,30 @@ export const Feed = props => {
       }}
       scrollEventThrottle={64}
     >
-      <ImageBackground
-        style={styles.imgEvent}
-        source={require('./../assets/sample.jpg')}>
-        <View style={styles.imgEventInner}>
-          <Text style={{color: appColors.white}}>สวัสดี, ศักย์ศิลกาล !</Text>
-          <Image style={styles.profileImg}
-            source={require('./../assets/profile-sample.png')}
-          />
-          <Text style={{color: appColors.white,}}>คุณเข้าร่วมกิจกรรมกับเราไปแล้วทั้งหมด n ครั้ง</Text>
-        </View>
-      </ImageBackground>
+      <RenderAPI />
+    </ScrollView>
     <Button
       title="Create an event"
       onPress={goToCreateEvent}
     />
-      <RenderAPI />
-
-    </ScrollView>
+    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
+    alignContent: 'center',
+    marginTop: 20,
+
+  },
+  scroll: {
+    marginTop: windowSize.height * 0.3,
   },
   imgEvent: {
     flex: 4,
     width: '100%',
-    height: windowSize.height * 0.30,
+    height: windowSize.height * 0.3,
     resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
@@ -95,7 +106,7 @@ const styles = StyleSheet.create({
   imgEventInner: {
     paddingTop: StatusBar.currentHeight,
     width: '100%',
-    height: '100%',
+    height: '90%',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.40)',
